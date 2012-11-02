@@ -27,17 +27,13 @@ namespace WolBrowser
         const string siteUrl = "http://m.wol.jw.org";
         Uri lastUri;
 
-        bool launchedFlag;
-
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            launchedFlag = true;
             bool isConnected = NetworkInterface.GetIsNetworkAvailable();
 #if DEBUG
             //isConnected = false;
 #endif
-
-            if (isConnected && !launchedFlag)
+            if (isConnected)
             {
                 ShowToastDataNotice();
             }

@@ -20,5 +20,17 @@ namespace WatchtowerOnlineLibrary
         {
             InitializeComponent();
         }
+
+        const string siteUrl = "http://m.wol.jw.org";
+
+        private void webBrowserWOL_Loaded(object sender, RoutedEventArgs e)
+        {
+            webBrowserWOL.Navigate(new Uri(siteUrl, UriKind.Absolute));
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("This program requires data connection.", "Notice", MessageBoxButton.OK);
+        }
     }
 }

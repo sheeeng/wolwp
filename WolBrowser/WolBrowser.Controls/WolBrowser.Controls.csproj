@@ -5,24 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{25032C67-8C74-41CF-95E0-1801DE9577B2}</ProjectGuid>
+    <ProjectGuid>{6DB77319-1DC5-420A-8FEB-B47802480313}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WolBrowser</RootNamespace>
-    <AssemblyName>WolBrowser</AssemblyName>
+    <RootNamespace>WolBrowser.Controls</RootNamespace>
+    <AssemblyName>WolBrowser.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
-    <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures>
-    </SupportedCultures>
-    <XapOutputs>true</XapOutputs>
-    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>WolBrowser.xap</XapFilename>
-    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>WolBrowser.App</SilverlightAppEntry>
+    <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
   </PropertyGroup>
@@ -51,84 +44,37 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
-    <Reference Include="mscorlib.extensions" />
-    <Reference Include="YourLastAboutDialog">
-      <HintPath>..\packages\YLAD.2.0.0\lib\sl40-wp71\YourLastAboutDialog.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="WebBrowser.xaml.cs">
+      <DependentUpon>WebBrowser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </ApplicationDefinition>
-    <Content Include="Content\About\AboutStyles.xaml">
+    <Page Include="WebBrowser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Content>
-    <Page Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Properties\AppManifest.xml" />
-    <None Include="Properties\WMAppManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\About\Data.xml" />
-    <Content Include="Images\appbar.back.rest.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\appbar.next.rest.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\appbar.refresh.rest.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="README_FIRST.txt" />
-    <Content Include="SplashScreenImage.jpg" />
-    <Resource Include="Toolkit.Content\ApplicationBar.Cancel.png" />
-    <Resource Include="Toolkit.Content\ApplicationBar.Check.png" />
-    <Resource Include="Toolkit.Content\ApplicationBar.Delete.png" />
-    <Resource Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Coding4Fun.Phone.Controls\Coding4Fun.Phone.Controls.csproj">
-      <Project>{09AC45C7-27E8-4A39-B2C4-0031111595D5}</Project>
-      <Name>Coding4Fun.Phone.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WolBrowser.Controls\WolBrowser.Controls.csproj">
-      <Project>{6DB77319-1DC5-420A-8FEB-B47802480313}</Project>
-      <Name>WolBrowser.Controls</Name>
+    <ProjectReference Include="..\Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj">
+      <Project>{0754458A-7AFC-463A-B27D-2F6980522119}</Project>
+      <Name>Microsoft.Phone.Controls.Toolkit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -136,5 +82,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ProjectExtensions />
 </Project>

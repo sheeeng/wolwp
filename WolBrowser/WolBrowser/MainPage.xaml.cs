@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
 using Microsoft.Phone.Net.NetworkInformation;
+using WolBrowser.Controls;
 using Coding4Fun.Phone.Controls;
 
 namespace WolBrowser
@@ -22,10 +23,10 @@ namespace WolBrowser
         public MainPage()
         {
             InitializeComponent();
+            //webBrowserWOL.Navigate(new Uri(siteUrl, UriKind.Absolute));
         }
 
         const string siteUrl = "http://m.wol.jw.org";
-        Uri lastUri;
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -49,7 +50,7 @@ namespace WolBrowser
             var toastPromptNetworkNotice = new ToastPrompt
             {
                 Title = "No Data Connection",
-                Message = "This program requires data connection." + Environment.NewLine + "Check your data connection." + Environment.NewLine,
+                Message = "This program requires data connection." + Environment.NewLine + "Check your data connection again." + Environment.NewLine,
                 TextOrientation = System.Windows.Controls.Orientation.Vertical,
                 //ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
             };
@@ -78,6 +79,7 @@ namespace WolBrowser
                 Title = "Data Usage Notice",
                 Message = "This program requires data connection." + Environment.NewLine + "You might increase your mobile data usage." + Environment.NewLine,
                 TextOrientation = System.Windows.Controls.Orientation.Vertical,
+                MillisecondsUntilHidden = 2000,
                 //ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
             };
             toastPromptDataNotice.Completed += toastPromptDataNotice_Completed;
@@ -86,22 +88,23 @@ namespace WolBrowser
 
         public void toastPromptDataNotice_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
         {
-            webBrowserWOL.Navigate(new Uri(siteUrl, UriKind.Absolute));
+            webBrowserWOL.Navigate(siteUrl);
+            //webBrowserWOL.Navigate(new Uri(siteUrl, UriKind.Absolute));
+        }
 
-            ////Opens link in default browser.
-            //WebBrowserTask webBrowserTask = new WebBrowserTask();
-            //webBrowserTask.Uri = new Uri(siteUrl, UriKind.Absolute);
-            //webBrowserTask.Show();
+        private void appBarIconButtonBack_Click(object sender, EventArgs e)
+        {
+           webBrowserWOL.NavigateBack();
         }
 
         private void appBarIconButtonRefresh_Click(object sender, EventArgs e)
         {
-            webBrowserWOL.Navigate(lastUri);
+           webBrowserWOL.RefreshBrowser();
         }
 
-        private void appBarIconButtonAbout_Click(object sender, EventArgs e)
+        private void appBarIconButtonForward_Click(object sender, EventArgs e)
         {
-            ShowAboutDialog();
+            webBrowserWOL.NavigateForward();
         }
 
         private void appBarMenuItemAbout_Click(object sender, EventArgs e)
@@ -112,12 +115,22 @@ namespace WolBrowser
         private void ShowAboutDialog()
         {
             //About dialog by YLAD from http://ylad.codeplex.com/ page.
+            //Recommended way of installing the library is to use NuGet extension.
+            //Install-Package YLAD
             NavigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
         }
 
-        private void webBrowserWOL_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            lastUri = e.Uri;
+            if (webBrowserWOL.CanNavigateBack)
+            {
+                e.Cancel = true;
+                webBrowserWOL.NavigateBack();
+            }
+            else
+            {
+                base.OnBackKeyPress(e);
+            }
         }
     }
 }

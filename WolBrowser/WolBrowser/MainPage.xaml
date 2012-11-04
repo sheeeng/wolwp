@@ -27,19 +27,22 @@
         </StackPanel>-->
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:WebBrowser HorizontalAlignment="Stretch" Margin="6,6,0,6" Name="webBrowserWOL" 
-                              VerticalAlignment="Stretch" Navigated="webBrowserWOL_Navigated" />
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" xmlns:wb="clr-namespace:WolBrowser.Controls;assembly=WolBrowser.Controls">
+            <!-- <phone:WebBrowser HorizontalAlignment="Stretch" Margin="6,6,0,6" Name="webBrowserWOL" 
+                              VerticalAlignment="Stretch" /> -->
+            <wb:WebBrowser Name="webBrowserWOL" InitialUri="about:blank"/>
         </Grid>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Refresh"
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.back.rest.png" Text="About" 
+                                            x:Name="appBarIconButtonBack" Click="appBarIconButtonBack_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.refresh.rest.png" Text="Refresh"
                                             x:Name="appBarIconButtonRefresh" Click="appBarIconButtonRefresh_Click"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="About" 
-                                            x:Name="appBarIconButtonAbout" Click="appBarIconButtonAbout_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.next.rest.png" Text="About" 
+                                            x:Name="appBarIconButtonForward" Click="appBarIconButtonForward_Click"/>
             <shell:ApplicationBar.MenuItems>
                 <!--<shell:ApplicationBarMenuItem Text="Fullscreen"/>-->
                 <shell:ApplicationBarMenuItem Text="About"

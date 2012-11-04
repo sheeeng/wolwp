@@ -18,9 +18,22 @@
   <!-- The App element allows you to override the values that are extracted from the WMAppManifest.xml file automatically -->
   <!-- The AdditionalNotes attribute has no equivalent in the WMAppManifest.xml; you can only define its content here -->
   <!-- Explicitly set any of the attributes to an empty string to remove it (including its label) from the dialog -->
-  <App Author="[Your name here]"
-       Publisher="[Publisher]"       
-       AdditionalNotes="[Fill in additional info here]" />
+  <App Author="Leonard Lee"
+       Publisher="Leonard Lee"     
+       Description="Browse Watchtower Online Library."
+       AdditionalNotes="This is NOT an official program.
+       \nProgram requires data connection to m.wol.jw.org page.
+       \nYou might increase your mobile data usage.
+       \n\nCopyright © 2012 Watch Tower Bible and Tract Society of Pennsylvania, Inc. All rights reserved.
+       \nThis Web site is published and maintained by Watchtower Bible and Tract Society of New York, Inc. Unless otherwise indicated, all text and other information contained in this Web site are the intellectual property of Watch Tower Bible and Tract Society of Pennsylvania, Inc. All rights reserved.
+       \n\nTerms of Use
+       \nSite visitors may download copyrighted materials from this site for non-commercial use only. By downloading such materials from this site, visitors agree not to post these materials on the Internet or on any other electronic network. Visitors also agree not to share these materials in exchange for money, even if no profit is involved.
+       \n\nTrademarks
+       \nAdobe, the Adobe logo, Acrobat, and the Acrobat logo are trademarks of Adobe Systems Incorporated. iTunes and iPod are trademarks of Apple Inc. All other trademarks and registered trademarks are property of their respective holders.
+       \n\nCredits
+       \nContributor(s) from http://ylad.codeplex.com/ project.
+       \nContributor(s) from http://coding4fun.codeplex.com/ project.
+       \nAuthor of http://franciscojf.wordpress.com/2011/03/27/full-web-browser-control-for-windows-phone-7/ page." />
   <Items>
     <!-- Create a MainItem entry to configure the front page -->
     <!-- The Titel attribute defines the title of the pivot item -->

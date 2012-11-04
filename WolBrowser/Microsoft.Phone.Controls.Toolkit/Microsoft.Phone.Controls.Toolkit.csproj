@@ -19,7 +19,7 @@
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\PhoneToolkit.snk</AssemblyOriginatorKeyFile>
+    <!-- <AssemblyOriginatorKeyFile>..\PhoneToolkit.snk</AssemblyOriginatorKeyFile> -->
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>

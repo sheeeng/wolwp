@@ -21,18 +21,19 @@
   <App Author="Leonard Lee"
        Publisher="Leonard Lee"     
        Description="Browse Watchtower Online Library."
-       AdditionalNotes="This is NOT an official program.
+       AdditionalNotes="WolBrowser is a FREE program. If you do get charged for it, please get a refund.
+       \nThis is NOT an official program.
        \nProgram requires data connection to m.wol.jw.org page.
-       \nYou might increase your mobile data usage.
+       \nYou increase your mobile data or WiFi usage by using this program.
        \n\nCopyright © 2012 Watch Tower Bible and Tract Society of Pennsylvania, Inc. All rights reserved.
        \nThis Web site is published and maintained by Watchtower Bible and Tract Society of New York, Inc. Unless otherwise indicated, all text and other information contained in this Web site are the intellectual property of Watch Tower Bible and Tract Society of Pennsylvania, Inc. All rights reserved.
        \n\nTerms of Use
        \nSite visitors may download copyrighted materials from this site for non-commercial use only. By downloading such materials from this site, visitors agree not to post these materials on the Internet or on any other electronic network. Visitors also agree not to share these materials in exchange for money, even if no profit is involved.
        \n\nTrademarks
        \nAdobe, the Adobe logo, Acrobat, and the Acrobat logo are trademarks of Adobe Systems Incorporated. iTunes and iPod are trademarks of Apple Inc. All other trademarks and registered trademarks are property of their respective holders.
-       \n\nCredits
-       \nContributor(s) from http://ylad.codeplex.com/ project.
-       \nContributor(s) from http://coding4fun.codeplex.com/ project.
+       \n\nCredits and Contributors
+       \nThe http://ylad.codeplex.com/ project.
+       \nThe http://coding4fun.codeplex.com/ project.
        \nAuthor of http://franciscojf.wordpress.com/2011/03/27/full-web-browser-control-for-windows-phone-7/ page." />
   <Items>
     <!-- Create a MainItem entry to configure the front page -->
@@ -53,11 +54,11 @@
         <!-- By using different protocols like http or mailto you can invoke the respective applications -->
         <!-- The Label attribute defines an additional label placed in front of the hyperlink -->
         <!-- Use this to provide contact/support details for your app -->
-        <Link NavigateUri="http://www.example.com"
-              Content="http://www.example.com"
+        <Link NavigateUri="http://bit.ly/WolWpWiki"
+              Content="http://bit.ly/WolWpWiki"
               Label="Web:" />
-        <Link NavigateUri="mailto:support@example.com"
-              Content="support@example.com"
+        <Link NavigateUri="mailto:wolwp.support@outlook.com"
+              Content="wolwp.support@outlook.com"
               Label="Support:" />
       </Links>
     </MainItem>
@@ -68,7 +69,8 @@
     <Item Title="history"
           Type="text">
       1.0.0.0
-      This is the initial public version.      
+      This is the initial public version.
+      WolBrowser is a FREE program. If you do get charged for it, please get a refund.
     </Item>
   </Items>
 </About>

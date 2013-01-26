@@ -77,7 +77,7 @@ namespace WolBrowser
                 Background = new SolidColorBrush(Colors.Cyan),
                 Foreground = new SolidColorBrush(Colors.Black),
                 Title = "Data Usage Notice",
-                Message = "This program requires data connection." + Environment.NewLine + "You might increase your mobile data usage." + Environment.NewLine,
+                Message = "This program requires data connection." + Environment.NewLine + "You will increase your mobile data or WiFi usage." + Environment.NewLine,
                 TextOrientation = System.Windows.Controls.Orientation.Vertical,
                 MillisecondsUntilHidden = 2000,
                 //ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));

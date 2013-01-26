@@ -21,20 +21,8 @@
   <App Author="Leonard Lee"
        Publisher="Leonard Lee"     
        Description="Browse Watchtower Online Library."
-       AdditionalNotes="WolBrowser is a FREE program. If you do get charged for it, please get a refund.
-       \nThis is NOT an official program.
-       \nProgram requires data connection to m.wol.jw.org page.
-       \nYou increase your mobile data or WiFi usage by using this program.
-       \n\nCopyright © 2012 Watch Tower Bible and Tract Society of Pennsylvania, Inc. All rights reserved.
-       \nThis Web site is published and maintained by Watchtower Bible and Tract Society of New York, Inc. Unless otherwise indicated, all text and other information contained in this Web site are the intellectual property of Watch Tower Bible and Tract Society of Pennsylvania, Inc. All rights reserved.
-       \n\nTerms of Use
-       \nSite visitors may download copyrighted materials from this site for non-commercial use only. By downloading such materials from this site, visitors agree not to post these materials on the Internet or on any other electronic network. Visitors also agree not to share these materials in exchange for money, even if no profit is involved.
-       \n\nTrademarks
-       \nAdobe, the Adobe logo, Acrobat, and the Acrobat logo are trademarks of Adobe Systems Incorporated. iTunes and iPod are trademarks of Apple Inc. All other trademarks and registered trademarks are property of their respective holders.
-       \n\nCredits and Contributors
-       \nThe http://ylad.codeplex.com/ project.
-       \nThe http://coding4fun.codeplex.com/ project.
-       \nAuthor of http://franciscojf.wordpress.com/2011/03/27/full-web-browser-control-for-windows-phone-7/ page." />
+       AdditionalNotes="WolBrowser is a FREE program. If you do get charged for it, please get a refund. This program is NOT an official program from Watch Tower Bible and Tract Society of Pennsylvania, Inc. Therefore, this program is not in any way affiliated with it. This program does not store any information from the Watchtower Online Library. This program requires data connection to m.wol.jw.org page. You will increase your mobile data or WiFi usage on your device by using this program."
+      />
   <Items>
     <!-- Create a MainItem entry to configure the front page -->
     <!-- The Titel attribute defines the title of the pivot item -->
@@ -57,9 +45,26 @@
         <Link NavigateUri="http://bit.ly/WolWpWiki"
               Content="http://bit.ly/WolWpWiki"
               Label="Web:" />
+        <Link NavigateUri="http://bit.ly/WolWpSrc"
+              Content="http://bit.ly/WolWpSrc"
+              Label="Source:" />
         <Link NavigateUri="mailto:wolwp.support@outlook.com"
               Content="wolwp.support@outlook.com"
               Label="Support:" />
+        <Link/>
+        <Link NavigateUri="http://www.jw.org/apps/index.html?option=YRTNYGRsZF&amp;txtCMSLang=E"
+              Content="Watchtower Online Library"
+              Label="Legal Notices:" />
+        <Link/>
+        <Link NavigateUri="http://coding4fun.codeplex.com/"
+          Content="Coding4Fun Tools "
+          Label="Credits:" />
+        <Link NavigateUri="http://ylad.codeplex.com/"
+              Content="Peter Kuhn (&quot;Mister Goodcat&quot;)"
+              Label="Credits:" />
+        <Link NavigateUri="http://franciscojf.wordpress.com/2011/03/27/full-web-browser-control-for-windows-phone-7/"
+              Content="Francisco Fernandez"
+              Label="Credits:" />
       </Links>
     </MainItem>
     <!-- For each additional pivot item, add a separate Item entry. Ideas for items are: license, tutorial or help, version history, show room for other apps from you etc. -->
@@ -71,6 +76,20 @@
       1.0.0.0
       This is the initial public version.
       WolBrowser is a FREE program. If you do get charged for it, please get a refund.
+    </Item>
+    <Item Title="credits"
+	  Type="text">
+      Coding4Fun Tools
+      Various contributors to the Coding4Fun Tools project.
+      http://coding4fun.codeplex.com/
+
+      Peter Kuhn
+      Wrote the YLAD - Your Last About Dialog project.
+      http://ylad.codeplex.com/
+
+      Francisco Fernandez
+      Wrote the full web browser control for Windows Phone.
+      http://franciscojf.wordpress.com/2011/03/27/full-web-browser-control-for-windows-phone-7/
     </Item>
   </Items>
 </About>

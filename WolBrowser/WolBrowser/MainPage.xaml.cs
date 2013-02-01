@@ -94,12 +94,26 @@ namespace WolBrowser
 
         private void appBarIconButtonBack_Click(object sender, EventArgs e)
         {
-           webBrowserWOL.NavigateBack();
+            webBrowserWOL.NavigateBack();
         }
+
+        ////Untested workaround taken from http://blog.jerrynixon.com/2011/11/mango-sample-exit-application.html page.
+        //private void Exit()
+        //{
+        //    while (NavigationService.BackStack.Any())
+        //        NavigationService.RemoveBackEntry();
+
+        //    this.IsHitTestVisible = this.IsEnabled = false;
+
+        //    if (this.ApplicationBar != null)
+        //        foreach (var item in this.ApplicationBar.Buttons
+        //            .OfType<ApplicationBarIconButton>())
+        //            item.IsEnabled = false;
+        //}
 
         private void appBarIconButtonRefresh_Click(object sender, EventArgs e)
         {
-           webBrowserWOL.RefreshBrowser();
+            webBrowserWOL.RefreshBrowser();
         }
 
         private void appBarIconButtonForward_Click(object sender, EventArgs e)
@@ -122,15 +136,18 @@ namespace WolBrowser
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            if (webBrowserWOL.CanNavigateBack)
-            {
+            //An option to use the device's physical back button to navigate webpages. But, it is redundant since the browser control has a built-in back button too.
+            //if (webBrowserWOL.CanNavigateBack)
+            //{
+            //    e.Cancel = true;
+            //    webBrowserWOL.NavigateBack();
+            //}
+            //else
+
+            //Give user a choice to close program at anytime.
+            if (MessageBox.Show("Close program?", "Exit", MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
                 e.Cancel = true;
-                webBrowserWOL.NavigateBack();
-            }
-            else
-            {
-                base.OnBackKeyPress(e);
-            }
+            base.OnBackKeyPress(e);
         }
     }
 }

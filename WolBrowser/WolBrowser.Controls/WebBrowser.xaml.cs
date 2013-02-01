@@ -39,7 +39,7 @@ namespace WolBrowser.Controls
         private readonly Stack<Uri> _NavigatingUrls = new Stack<Uri>();
 
         //The history for the browser
-        private readonly ObservableCollection<string> _History = 
+        private readonly ObservableCollection<string> _History =
             new ObservableCollection<string>();
 
         //Flag to check if the browser is navigating back.
@@ -57,6 +57,11 @@ namespace WolBrowser.Controls
             get { return _History; }
         }
 
+        //public Stack<Uri> NavigatingUrls
+        //{
+        //    get { return _NavigatingUrls; }
+        //}
+
         #endregion
 
         #region Dependency Properties
@@ -65,7 +70,7 @@ namespace WolBrowser.Controls
         /// ShowProgress Dependency Property
         /// </summary>
         public static readonly DependencyProperty ShowProgressProperty =
-            DependencyProperty.Register("ShowProgress", typeof(bool), 
+            DependencyProperty.Register("ShowProgress", typeof(bool),
             typeof(WebBrowser), new PropertyMetadata((bool)false));
 
         /// <summary>
@@ -82,7 +87,7 @@ namespace WolBrowser.Controls
         /// CanNavigateBack Dependency Property
         /// </summary>
         public static readonly DependencyProperty CanNavigateBackProperty =
-            DependencyProperty.Register("CanNavigateBack", typeof(bool), 
+            DependencyProperty.Register("CanNavigateBack", typeof(bool),
             typeof(WebBrowser), new PropertyMetadata((bool)false));
 
         /// <summary>
@@ -99,7 +104,7 @@ namespace WolBrowser.Controls
         /// InitialUri Dependency Property
         /// </summary>
         public static readonly DependencyProperty InitialUriProperty =
-            DependencyProperty.Register("InitialUri", typeof(string), 
+            DependencyProperty.Register("InitialUri", typeof(string),
             typeof(WebBrowser), new PropertyMetadata((string)String.Empty));
 
         /// <summary>
@@ -116,14 +121,14 @@ namespace WolBrowser.Controls
 
         #region Event Handlers
 
-        void TheWebBrowser_Navigating(object sender, 
+        void TheWebBrowser_Navigating(object sender,
             Microsoft.Phone.Controls.NavigatingEventArgs e)
         {
             //We show the progress bar when we start navigating.
             ShowProgress = true;
         }
 
-        void TheWebBrowser_Navigated(object sender, 
+        void TheWebBrowser_Navigated(object sender,
             System.Windows.Navigation.NavigationEventArgs e)
         {
             //If we are Navigating Backward and we Can Navigate back, 
@@ -143,7 +148,7 @@ namespace WolBrowser.Controls
             }
 
             //If there is one address left you can't go back.
-            if (_NavigatingUrls.Count > 1)
+            if (_NavigatingUrls.Count > 2) //the second address is treated as first home page as the zero index page is about:blank page.
                 CanNavigateBack = true;
             else
                 CanNavigateBack = false;
@@ -156,7 +161,7 @@ namespace WolBrowser.Controls
         {
             //When we load our browser if we specified an initial uri
             //we navigate to it.
-            if(!String.IsNullOrEmpty(InitialUri))
+            if (!String.IsNullOrEmpty(InitialUri))
                 TheWebBrowser.Navigate(new Uri(InitialUri));
         }
 
@@ -187,7 +192,8 @@ namespace WolBrowser.Controls
         public void NavigateBack()
         {
             _IsNavigatingBackward = true;
-            TheWebBrowser.InvokeScript("eval", "history.go(-1)");
+            if (_History.Count > 1) //prevent crash with below line while the about:blank being loaded.
+                TheWebBrowser.InvokeScript("eval", "history.go(-1)");
         }
 
         /// <summary>

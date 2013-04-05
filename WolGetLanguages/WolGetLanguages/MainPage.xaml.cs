@@ -19,6 +19,7 @@ namespace WolGetLanguages
         public MainPage()
         {
             InitializeComponent();
+
         }
     }
 }

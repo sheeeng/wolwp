@@ -68,7 +68,7 @@ namespace WolGetLanguages
                     //Here we call Regex.Match() function.
                     //Match match = Regex.Match(stringWholeUrl, "url=.*$", RegexOptions.IgnoreCase);
                     //http://www.codeproject.com/Articles/9099/The-30-Minute-Regex-Tutorial
-                    //TODO: Improve regex on /zu/wol/pref/r1/lp-e?newlocale=zu&url=/zu/wol/pref/r1/lp-e link to get only the language variable.
+                    //TODO: Improve regex on /zu/wol/pref/r1/lp-e?newlocale=zu&url=/zu/wol/pref/r1/lp-e link to get only the language variable. Fix: match.Groups[1].Value.
 
                     String regexPattern = @"/(.*?)/"; //@".*?wol";
 
@@ -83,7 +83,7 @@ namespace WolGetLanguages
                     if (match.Success)
                     {
                         // Finally, we get the Group value and display it.
-                        string key = match.Groups[0].Value;
+                        string key = match.Groups[1].Value;
                         //Debug.WriteLine(key);
                     }
                     else
